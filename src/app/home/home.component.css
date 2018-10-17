@@ -1,0 +1,23 @@
+.home-body{    
+    
+    border-radius: 3px;
+    background: #FF512F;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DD2476, #FF512F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+.home-body .content{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    height: 100vh;
+    padding: 2vh 20vw;
+    
+}
+h1,p{
+    margin:0;
+    padding: 0;
+}
+p{
+    font-size: 1.2em;
+}
+

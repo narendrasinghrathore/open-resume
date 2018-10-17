@@ -1,0 +1,14 @@
+<div>
+  <form [formGroup]="profileForm">
+    <mat-form-field>
+      <input matInput placeholder="Full Name" formControlName="fullname">
+      <mat-hint>Your full name ( e.g Narendra Singh Rathore</mat-hint>
+      <mat-error *ngIf="profileForm.get('fullname').invalid">
+        Please enter your full name
+      </mat-error>
+    </mat-form-field>
+  </form>
+</div>
+<div cdkDrop class="list" (cdkDropDropped)="drop($event)">
+  <div class="box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+</div>
