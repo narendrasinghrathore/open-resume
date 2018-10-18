@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <form [formGroup]="profileForm">
     <mat-form-field>
       <input matInput placeholder="Full Name" formControlName="fullname">
@@ -11,4 +11,10 @@
 </div>
 <div cdkDrop class="list" (cdkDropDropped)="drop($event)">
   <div class="box" *ngFor="let movie of movies" cdkDrag>{{movie}}</div>
+</div> -->
+<hr class="invisible">
+<div class="editform">
+  <div class="container list">
+    <app-dynamic-form-builder [questions]="questions"></app-dynamic-form-builder>
+  </div>
 </div>

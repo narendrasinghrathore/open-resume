@@ -14,6 +14,8 @@ import { MyErrorStateMatcher } from 'src/helpers/error-state-matcher';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
 import { LayoutModule } from '@angular/cdk/layout';
+import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
+import { DynamicFormBuilderComponent } from './dynamic-form-builder/dynamic-form-builder.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { LayoutModule } from '@angular/cdk/layout';
     Page404Component,
     EditComponent,
     DashboardComponent,
+    DynamicFormComponent,
+    DynamicFormBuilderComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, MatThemeModule,

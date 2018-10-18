@@ -1,0 +1,23 @@
+<div>
+  <form class="list" (ngSubmit)="onSubmit()" [formGroup]="form" cdkDrop (cdkDropDropped)="drop($event)">
+
+    <div *ngFor="let question of questions" class="form-row box" cdkDrag>
+      <app-dynamic-form [question]="question" [form]="form">
+        <div class="handle" cdkDragHandle>
+          <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+            <path d="M0 0h24v24H0z" fill="none"></path>
+          </svg>
+        </div>
+      </app-dynamic-form>
+    </div>
+
+    <div class="form-row">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Save</button>
+    </div>
+  </form>
+
+  <div *ngIf="payLoad" class="form-row">
+    <strong>Saved the following values</strong><br>{{payLoad}}
+  </div>
+</div>

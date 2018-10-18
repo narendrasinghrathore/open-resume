@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import {CdkDragDrop, moveItemInArray} from '@angular/cdk-experimental/drag-drop';
+import { GenerateControlsService } from 'src/services/generate-controls.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -10,8 +11,11 @@ import {CdkDragDrop, moveItemInArray} from '@angular/cdk-experimental/drag-drop'
 export class EditComponent implements OnInit {
 
   profileForm: FormGroup;
+  questions: any[];
 
-  constructor() { }
+  constructor(service: GenerateControlsService) {
+    this.questions = service.getQuestions();
+  }
 
   ngOnInit() {
     this.profileForm = new FormGroup({
@@ -29,8 +33,8 @@ export class EditComponent implements OnInit {
     'Episode VII - The Force Awakens',
     'Episode VIII - The Last Jedi'
   ];
-
-  drop(event: CdkDragDrop<string[]>) {
-    moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
-  }
+  // drop(event: CdkDragDrop<string[]>) {
+  //   console.log(event)
+  //   moveItemInArray(this.movies, event.previousIndex, event.currentIndex);
+  // }
 }
