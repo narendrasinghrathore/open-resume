@@ -1,0 +1,10 @@
+.form{
+        width: 100%;
+}
+.form .controls{
+    width: 100%;
+}
+.form .controls .input, .form .controls .textarea, .form .controls .dropdown{
+    
+    width: 70vw;
+}

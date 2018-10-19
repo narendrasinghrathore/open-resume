@@ -4,7 +4,7 @@ import { FormGroup } from '@angular/forms';
 
 import { GenerateControlsService } from 'src/services/generate-controls.service';
 import { ControlsBase } from '../controls/controls.base';
-import { CdkDragDrop, moveItemInArray } from '@angular/cdk-experimental/drag-drop';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-dynamic-form-builder',
@@ -14,16 +14,16 @@ import { CdkDragDrop, moveItemInArray } from '@angular/cdk-experimental/drag-dro
 export class DynamicFormBuilderComponent implements OnInit {
 
   @Input() questions: ControlsBase<any>[] = [];
-  form: FormGroup;
+  dynamicFormBuilder: FormGroup;
   payLoad = '';
   constructor(private qcs: GenerateControlsService) { }
 
   ngOnInit() {
-    this.form = this.qcs.toFormGroup(this.questions);
+    this.dynamicFormBuilder = this.qcs.toFormGroup(this.questions);
   }
 
   onSubmit() {
-    this.payLoad = JSON.stringify(this.form.value);
+    this.payLoad = JSON.stringify(this.dynamicFormBuilder.value);
   }
 
   drop(event: CdkDragDrop<ControlsBase<any>[]>) {
