@@ -1,5 +1,5 @@
 <div>
-  <form class="list" (ngSubmit)="onSubmit()" [formGroup]="dynamicFormBuilder" cdkDrop (cdkDropDropped)="drop($event)">
+  <form class="list" (ngSubmit)="onSubmit()" [formGroup]="dynamicFormBuilder" cdkDropList (cdkDropListDropped)="drop($event)">
 
     <div *ngFor="let question of questions" class="form-row box" cdkDrag>
       <app-dynamic-form class="dynamic-form" [question]="question" [form]="dynamicFormBuilder">
