@@ -12,10 +12,9 @@ import { EditComponent } from './edit/edit.component';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { MyErrorStateMatcher } from 'src/helpers/error-state-matcher';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule } from '@angular/material';
-import { LayoutModule } from '@angular/cdk/layout';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormBuilderComponent } from './dynamic-form-builder/dynamic-form-builder.component';
+import { TemplatesModule } from './templates/templates.module';
 
 @NgModule({
   declarations: [
@@ -28,8 +27,8 @@ import { DynamicFormBuilderComponent } from './dynamic-form-builder/dynamic-form
     DynamicFormBuilderComponent,
   ],
   imports: [
-    BrowserModule, BrowserAnimationsModule, MatThemeModule,
-    AppRoutingModule, ReactiveFormsModule, MatGridListModule, MatCardModule, MatMenuModule, MatIconModule, MatButtonModule, LayoutModule,
+    BrowserModule, BrowserAnimationsModule, MatThemeModule, ReactiveFormsModule,
+    AppRoutingModule
   ],
   providers: [
     {provide: ErrorStateMatcher, useClass: MyErrorStateMatcher}

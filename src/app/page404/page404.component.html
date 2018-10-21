@@ -1,3 +1,12 @@
-<p>
-  page404 works!
-</p>
+<div class="body">
+  <mat-toolbar color="primary">
+    Page not found
+    <span class="span-spacer"></span>
+    <mat-icon class="mat-icon_margin" aria-label="Page not found icon">block</mat-icon></mat-toolbar>
+  <h3>
+    <button [routerLink]="['/home']" mat-fab>
+      <mat-icon aria-label="Go to homepage">home</mat-icon>
+    </button> Got to homepage
+  </h3>
+
+</div>

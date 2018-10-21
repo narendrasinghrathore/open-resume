@@ -1,6 +1,6 @@
 <div [formGroup]="form" class="form">
   <!-- <label [attr.for]="question.key"></label> -->
-  <mat-toolbar>{{question.label}}</mat-toolbar>
+  <h1>{{question.label}}</h1>
   <div [ngSwitch]="question.controlType" class="controls">
     <mat-form-field *ngSwitchCase="'textbox'" class="controls input">
       <input matInput [placeholder]="question.label" value="Sushi" *ngSwitchCase="'textbox'" [formControlName]="question.key"

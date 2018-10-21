@@ -9,17 +9,25 @@ const routes: Routes = [
         path: '', pathMatch: 'full', redirectTo: '/home',
     },
     {
-        path: 'dashboard', component: DashboardComponent
+        path: 'templates',
+        loadChildren: 'src/app/templates/templates.module#TemplatesModule'
     },
     {
-        path: 'home', component: HomeComponent
+        path: 'dashboard',
+        component: DashboardComponent
     },
     {
-        path: 'edit', component: EditComponent
+        path: 'home',
+        component: HomeComponent
+    },
+    {
+        path: 'edit',
+        component: EditComponent
 
     },
     {
-        path: '**', component: Page404Component
+        path: '**',
+        component: Page404Component
     }
 ];
 @NgModule({
