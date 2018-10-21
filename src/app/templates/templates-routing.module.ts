@@ -6,14 +6,18 @@ import { TemplatesComponent } from './templates.component';
 
 const routes: Routes = [
   {
-    path: 'templates',
+    path: '', redirectTo: 'templates/home', pathMatch: 'full'
+
+  },
+  {
+    path: '',
     component: TemplatesComponent,
     children: [
       {
         path: 'home', component: HomeComponent
       },
       {
-        path: 'basic', component: BasicComponent
+        path: 'basic', loadChildren: 'src/app/templates/basic/basic.module#BasicModule'
       }
     ]
   },
