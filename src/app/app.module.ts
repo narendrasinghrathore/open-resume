@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormBuilderComponent } from './dynamic-form-builder/dynamic-form-builder.component';
 import { TemplatesModule } from './templates/templates.module';
+import { ShowOnlyPipe } from 'src/pipes/dashboard-cards.pipe';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TemplatesModule } from './templates/templates.module';
     DashboardComponent,
     DynamicFormComponent,
     DynamicFormBuilderComponent,
+    ShowOnlyPipe
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, MatThemeModule, ReactiveFormsModule,

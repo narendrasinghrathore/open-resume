@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Breakpoints, BreakpointState, BreakpointObserver } from '@angular/cdk/layout';
+import { PagesToNavigateClass } from 'src/models/pagesToNavigate.class';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,22 +13,37 @@ export class DashboardComponent {
   cards = this.breakpointObserver.observe(Breakpoints.Handset).pipe(
     map(({ matches }) => {
       if (matches) {
-        return [
-          { title: 'Card 1', cols: 1, rows: 1 },
-          { title: 'Card 2', cols: 1, rows: 1 },
-          { title: 'Card 3', cols: 1, rows: 1 },
-          { title: 'Card 4', cols: 1, rows: 1 }
-        ];
+        return this.pagesToNavigate(1);
       }
 
-      return [
-        { title: 'Card 1', cols: 2, rows: 1 },
-        { title: 'Card 2', cols: 1, rows: 1 },
-        { title: 'Card 3', cols: 1, rows: 2 },
-        { title: 'Card 4', cols: 1, rows: 1 }
-      ];
+      return this.pagesToNavigate();
     })
   );
 
-  constructor(private breakpointObserver: BreakpointObserver) {}
+  pagesToNavigate(breakpoint: number = 2): PagesToNavigateClass[] {
+    return [
+      {
+        link: '/templates/home',
+        title: 'Templates Home',
+        p: 'Select templates to start with.<br/> Let\'s start by selecting new template.',
+        cols: breakpoint, rows: 1,
+        show: true
+      },
+      {
+        link: '/dashboard',
+        title: 'Saved Templates',
+        p: 'We found some templates you had already used <br/> and stored on your local machine.',
+        cols: 1, rows: 1,
+        show: true
+      },
+      {
+        link: '/dashboard',
+        title: 'Upcoming fetures',
+        p: 'Here we list out new upcoming features.<br/> Let\'s start by selecting new template.',
+        cols: 1, rows: 1,
+        show: false
+      }];
+  }
+
+  constructor(private breakpointObserver: BreakpointObserver) { }
 }
