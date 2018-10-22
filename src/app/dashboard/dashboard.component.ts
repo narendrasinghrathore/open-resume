@@ -25,16 +25,18 @@ export class DashboardComponent {
       {
         link: '/templates/home',
         title: 'Templates Home',
-        p: 'Select templates to start with.<br/> Let\'s start by selecting new template.',
+        p: 'Select template from our collection to start with.',
         cols: breakpoint, rows: 1,
-        show: true
+        show: true,
+        class: 'select-templates'
       },
       {
         link: '/dashboard',
         title: 'Saved Templates',
         p: 'We found some templates you had already used <br/> and stored on your local machine.',
         cols: 1, rows: 1,
-        show: true
+        show: true,
+        class: 'saved-templates'
       },
       {
         link: '/dashboard',

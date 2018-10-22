@@ -1,8 +1,8 @@
-<div class="grid-container">
-  <h1 class="mat-h1">Dashboard</h1>
+<div class="dashboard"><div class="grid-container">
+  <mat-toolbar color="primary">Dashboard</mat-toolbar>
   <mat-grid-list cols="2" rowHeight="350px">
-    <mat-grid-tile *ngFor="let card of (cards | async | showOnly) ; let i = index" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
+    <mat-grid-tile  *ngFor="let card of (cards | async | showOnly) ; let i = index" [colspan]="card.cols" [rowspan]="card.rows">
+      <mat-card class="dashboard-card" [ngClass]="card.class"> 
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
@@ -24,4 +24,4 @@
       </mat-card>
     </mat-grid-tile>
   </mat-grid-list>
-</div>
+</div></div>

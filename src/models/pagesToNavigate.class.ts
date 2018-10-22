@@ -5,4 +5,5 @@ export class PagesToNavigateClass {
     cols: number;
     rows: number;
     show: boolean;
+    class?: string;
 }
