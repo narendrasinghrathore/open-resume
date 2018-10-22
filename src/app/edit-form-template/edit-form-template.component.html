@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="page">
+    <form (ngSubmit)="onSubmit()" [formGroup]="a4Form" cdkDropList (cdkDropListDropped)="drop($event)">
+      <div class="heading" contenteditable="true">
+        Your Name
+      </div>
+      <hr class="invisible">
+
+      <div *ngFor="let sec of sections" class="form-row box" cdkDrag>
+        <div class="heading" contenteditable="true">
+          {{sec}}
+        </div>
+        <p contenteditable="true">
+          Summary
+        </p>
+      </div>
+
+      <!-- <div class="form-row">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!a4Form.valid">Save</button>
+          </div> -->
+    </form>
+  </div>
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Item 1</button>
+    <button mat-menu-item>Item 2</button>
+  </mat-menu>
+</div>

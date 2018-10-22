@@ -14,7 +14,6 @@ import { MyErrorStateMatcher } from 'src/helpers/error-state-matcher';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DynamicFormComponent } from './dynamic-form/dynamic-form.component';
 import { DynamicFormBuilderComponent } from './dynamic-form-builder/dynamic-form-builder.component';
-import { TemplatesModule } from './templates/templates.module';
 import { ShowOnlyPipe } from 'src/pipes/dashboard-cards.pipe';
 
 @NgModule({
@@ -26,7 +25,7 @@ import { ShowOnlyPipe } from 'src/pipes/dashboard-cards.pipe';
     DashboardComponent,
     DynamicFormComponent,
     DynamicFormBuilderComponent,
-    ShowOnlyPipe
+    ShowOnlyPipe,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, MatThemeModule, ReactiveFormsModule,

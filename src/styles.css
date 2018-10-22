@@ -25,3 +25,20 @@ hr.invisible {
   flex: 1 1 auto;
 
 }
+
+.page {
+  background: white;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+  width: 8.27in;
+  height: 11.69in;
+}
+
+@media print {
+  .page {
+    margin: 0;
+    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
+    background: black;
+  }
+}
