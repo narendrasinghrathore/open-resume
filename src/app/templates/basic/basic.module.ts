@@ -8,11 +8,10 @@ import { SharedModule } from 'src/shared/shared.module';
 
 @NgModule({
   imports: [
-    CommonModule,
     MatThemeModule,
-    SharedModule,
+    CommonModule,
     BasicRoutingModule,
-
+    SharedModule,
   ],
   declarations: [BasicComponent, ]
 })
