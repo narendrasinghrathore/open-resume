@@ -17,6 +17,7 @@ import { DynamicFormBuilderComponent } from './dynamic-form-builder/dynamic-form
 import { ShowOnlyPipe } from 'src/pipes/dashboard-cards.pipe';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { BottomMenuComponent } from './bottom-menu/bottom-menu.component';
 
 @NgModule({
   declarations: [
@@ -28,14 +29,18 @@ import { environment } from '../environments/environment';
     DynamicFormComponent,
     DynamicFormBuilderComponent,
     ShowOnlyPipe,
+    BottomMenuComponent,
   ],
   imports: [
     BrowserModule, BrowserAnimationsModule, MatThemeModule, ReactiveFormsModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
+  entryComponents: [
+    BottomMenuComponent
+  ],
   providers: [
-    {provide: ErrorStateMatcher, useClass: MyErrorStateMatcher}
+    { provide: ErrorStateMatcher, useClass: MyErrorStateMatcher }
   ],
   bootstrap: [AppComponent]
 })

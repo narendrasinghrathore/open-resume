@@ -1,9 +1,18 @@
-.container{
-    padding: 10vh  0;
+.container {
+  padding: 10vh 0;
+  font-size: 24px;
 }
+
 .heading {
-    display: block;
+  display: block;
 }
-form{
-    padding: 5px;
+
+form {
+  padding: 5px;
+}
+
+.floating-menu {
+  position: fixed;
+  top: 10px;
+  left: 10px;
 }

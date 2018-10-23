@@ -6,6 +6,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
+  font-display: fallback ;
   border-radius: 4px;
 }
 
@@ -32,13 +33,12 @@ hr.invisible {
   margin: 0 auto;
   box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
   width: 8.27in;
-  height: 11.69in;
+  min-height: 11.69in;
 }
 
 @media print {
   .page {
     margin: 0;
-    box-shadow: 0 0 0.5cm rgba(0, 0, 0, 0.5);
-    background: black;
+   
   }
 }

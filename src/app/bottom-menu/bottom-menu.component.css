@@ -1,0 +1,9 @@
+.pad2{
+    padding: 4px !important;
+}
+.mat-line{
+    display: flex !important;
+}
+.my-mat-slider{
+    width: 23vw;
+}

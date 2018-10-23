@@ -1,0 +1,13 @@
+<mat-nav-list>
+  <mat-list-item>
+    <span matLine> Font Size: {{fontSizeDisplay}}</span>
+    <span matLine class="pad2">
+      <mat-icon (click)="setFontSize()">remove_circle</mat-icon>
+      <span class="span-spacer">
+        <mat-slider class="my-mat-slider" aria-label="set font size" [value]="fontSize" (change)="log($event)" tickInterval="1" min="1" max="50">
+        </mat-slider>
+      </span>
+      <mat-icon (click)="setFontSize(true)">add_circle</mat-icon>
+    </span>
+  </mat-list-item>
+</mat-nav-list>
