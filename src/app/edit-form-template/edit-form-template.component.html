@@ -1,29 +1,40 @@
 <div class="container" [style.fontSize]="fontSize + 'px'">
   <div class="page">
-    <form (ngSubmit)="onSubmit()" [formGroup]="a4Form" cdkDropList (cdkDropListDropped)="drop($event)">
+    <form (ngSubmit)="onSubmit()" [formGroup]="a4Form" class="container-list" cdkDropList lockAxis="x"
+      (cdkDropListDropped)="drop($event)">
       <div class="heading" contenteditable="true">
-        Your Name
+        <mat-form-field class="input-control">
+          <input formControlName="name_txt" matInput>
+        </mat-form-field>
+        <mat-form-field class="input-control">
+          <input formControlName="contact_txt" matInput>
+        </mat-form-field>
       </div>
       <hr class="invisible">
-
-      <div *ngFor="let sec of sections" class="form-row box" cdkDrag>
-        <div class="heading" contenteditable="true">
-          {{sec}}
+      <div *ngFor="let sec of sections; let i = index" class="form-row box" class="container-box" cdkDrag>
+        <div class="content">
+          <div class="example-handle" cdkDragHandle>
+            <svg width="24px" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M10 9h4V6h3l-5-5-5 5h3v3zm-1 1H6V7l-5 5 5 5v-3h3v-4zm14 2l-5-5v3h-3v4h3v3l5-5zm-9 3h-4v3H7l5 5 5-5h-3v-3z"></path>
+              <path d="M0 0h24v24H0z" fill="none"></path>
+            </svg>
+          </div>
+          <mat-form-field class="input-control">
+            <input [formControlName]="sec.name" matInput [placeholder]="sec.value" [value]="sec.value">
+          </mat-form-field>
         </div>
-        <p contenteditable="true">
-          Summary
-        </p>
       </div>
-
-      <!-- <div class="form-row">
-            <button mat-raised-button color="primary" type="submit" [disabled]="!a4Form.valid">Save</button>
-          </div> -->
     </form>
   </div>
   <div class="floating-menu">
-    <button mat-button (click)="openBottomSheet()">
+    <button mat-button matTooltip="Options" (click)="openBottomSheet()">
       <mat-icon>more_vert</mat-icon>
     </button>
+    <button mat-button matTooltip="Save changes" (click)="saveChanges()">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button mat-button matTooltip="Download Resume">
+      <mat-icon>cloud_download</mat-icon>
+    </button>
   </div>
-
 </div>

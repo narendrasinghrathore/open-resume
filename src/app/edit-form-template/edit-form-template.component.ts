@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 import { BottomMenuComponent } from '../bottom-menu/bottom-menu.component';
 import { SyncService } from 'src/services/sync.service';
+import { StorageService } from 'src/services/storage.service';
 @Component({
   selector: 'app-edit-form-template',
   templateUrl: './edit-form-template.component.html',
@@ -11,12 +12,16 @@ import { SyncService } from 'src/services/sync.service';
 })
 export class EditFormTemplateComponent implements OnInit {
 
-  sections: string[];
+  sections: { name: string, value: string }[];
   a4Form: FormGroup;
 
   fontSize: number;
 
-  constructor(private bottomSheet: MatBottomSheet, private syncService: SyncService) { }
+  constructor(private bottomSheet: MatBottomSheet, private syncService: SyncService,
+    private storageService: StorageService) {
+    this.a4Form = new FormGroup({});
+    this.checkIfStored();
+  }
 
   openBottomSheet(): void {
     const sheetRef = this.bottomSheet.open(BottomMenuComponent);
@@ -26,19 +31,47 @@ export class EditFormTemplateComponent implements OnInit {
     });
   }
 
+  checkIfStored(): void {
+    if (this.storageService.isStored) {
+      this.loadResume();
+    } else {
+      this.createResume();
+    }
+  }
+
+  loadResume() {
+    const arr = this.storageService.resume;
+    Object.keys(arr).forEach((key, index) => {
+      this.a4Form.addControl(key, new FormControl(arr[key]));
+    });
+  }
+
+
   ngOnInit() {
+
     this.fontSize = this.syncService.fontSize;
-    this.a4Form = new FormGroup({});
+    this.checkIfStored();
+
+  }
+
+  createResume() {
+    this.a4Form.addControl('name_txt', new FormControl('Your Name'));
+    this.a4Form.addControl('contact_txt', new FormControl(' abc@mail.com , +91 -9601532341 '));
     this.sections = [
-      'Edit Your Name',
-      'Professional Summary',
-      'Work Expirence',
-      'Education',
-      'Certifications',
-      'Publications',
-      'Professional Organizations',
-      'Skills'
+      { name: 'professional_summary_txt', value: 'Professional Summary' },
+      { name: 'work_exp_txt', value: 'Work Expirence' },
+      { name: 'education_txt', value: 'Education' },
+      { name: 'certificate_txt', value: 'Certifications' },
+      { name: 'publification_txt', value: 'Publications' },
+      { name: 'professional_org_txt', value: 'Professional Organizations' },
+      { name: 'skills_txt', value: 'Skills' }
     ];
+
+    this.sections.forEach(element => {
+      this.a4Form.addControl(
+        element.name, new FormControl(element.value)
+      );
+    });
   }
 
   drop(event: CdkDragDrop<string[]>) {
@@ -47,6 +80,11 @@ export class EditFormTemplateComponent implements OnInit {
 
   onSubmit() {
     // this.payLoad = JSON.stringify(this.a4Form.value);
+  }
+
+  saveChanges() {
+    this.storageService.resume = this.a4Form.value;
+    console.log(this.a4Form.value);
   }
 
 

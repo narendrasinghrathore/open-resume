@@ -10,6 +10,8 @@ import { SyncService } from 'src/services/sync.service';
 export class BottomMenuComponent implements OnInit {
 
   fontSize: number;
+  minFontVal = 20;
+  maxFontValue = 40;
 
   fontSizeDisplay = '';
 
