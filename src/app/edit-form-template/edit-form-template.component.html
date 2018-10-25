@@ -20,7 +20,8 @@
             </svg>
           </div>
           <mat-form-field class="input-control">
-            <input [formControlName]="sec.name" matInput [placeholder]="sec.value" [value]="sec.value">
+            <input [formControlName]="sec.name" matInput [placeholder]="getHeading(sec.name)"
+             [value]="sec.value">
           </mat-form-field>
         </div>
       </div>
