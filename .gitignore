@@ -16,7 +16,7 @@
 *.launch
 .settings/
 *.sublime-workspace
-
+.firebase
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
