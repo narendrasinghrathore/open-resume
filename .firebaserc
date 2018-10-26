@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "open-resume-io"
+    "default": "openresumeio",
+    "production": "openresumeio"
   }
 }
