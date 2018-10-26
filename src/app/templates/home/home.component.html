@@ -1,4 +1,36 @@
-<p>
-  Template home works!
-  <a [routerLink]="['/templates/basic']" routerLinkActive="router-link-active">Basic template</a>
-</p>
+<div class="home-container">
+  <h1 class="main-heading">
+    <span class="floating-menu-right">
+      <button aria-label="Go back to previous page" mat-button matTooltip="Go to template page." (click)="navigateToPreviousPage()">
+        <mat-icon>arrow_back</mat-icon>
+      </button>
+    </span>
+    Templates
+  </h1>
+  <div class="home-pages">
+
+    <div class="home-page mat-elevation-z4" matRipple *ngFor="let page of pages">
+      <mat-card class="page-card">
+        <mat-card-header>
+          <!-- <div mat-card-avatar class="example-header-image"></div> -->
+          <mat-card-title>{{page.title}}</mat-card-title>
+          <mat-card-subtitle> {{page.subtitle}}</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content class="content">
+
+          {{page.content}}
+
+        </mat-card-content>
+        <mat-card-actions align="end">
+          <a [routerLink]="page.href" aria-label="page.aria_label">
+            <button mat-button>
+              <mat-icon>chevron_right</mat-icon>
+            </button>
+          </a>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+
+  </div>
+</div>

@@ -5,7 +5,6 @@ import { MatBottomSheet, MatBottomSheetRef } from '@angular/material';
 import { BottomMenuComponent } from '../bottom-menu/bottom-menu.component';
 import { SyncService } from 'src/services/sync.service';
 import { StorageService } from 'src/services/storage.service';
-import { Observable, observable } from 'rxjs';
 @Component({
   selector: 'app-edit-form-template',
   templateUrl: './edit-form-template.component.html',
@@ -107,6 +106,10 @@ export class EditFormTemplateComponent implements OnInit {
   saveChanges() {
     this.storageService.resume = this.a4Form.value;
     console.log(this.a4Form.value);
+  }
+
+  navigateToPreviousPage(){
+    window.history.back();
   }
 
 

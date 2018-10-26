@@ -27,7 +27,12 @@
       </div>
     </form>
   </div>
-  <div class="floating-menu">
+  <div class="floating-menu-left">
+    <button aria-label="Go back to template page" mat-button matTooltip="Go to template page." (click)="navigateToPreviousPage()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+  </div>
+  <div class="floating-menu-right">
     <button mat-button matTooltip="Options" (click)="openBottomSheet()">
       <mat-icon>more_vert</mat-icon>
     </button>
